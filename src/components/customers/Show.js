@@ -10,7 +10,7 @@ class CustomerShow extends React.Component{
         
     }
     componentDidMount(){
-        const id=this.props.match.params.id
+        const id=this.props.match.params.id 
         axios.get(`/customers/${id}`,{
             headers:{
         'x-auth':localStorage.getItem('authToken')

@@ -1,4 +1,5 @@
 import React from 'react'
+import Swal from 'sweetalert2'
 class DepartmentForm extends React.Component{
     constructor(){
         super()
@@ -22,11 +23,15 @@ class DepartmentForm extends React.Component{
 render(){
     return(
         <div>
+<h1>Add Department</h1>
             <form onSubmit={this.handleSubmit}>
+               <div className="form-group">
                 <label>Name</label>
                 <input type="text"  value={this.state.name} name="name"
-                onChange={this.handleChange} />
-                <input type='submit' value='add department'/>
+                onChange={this.handleChange} 
+                className="form-control"/>
+                </div>
+                <input type='submit' value='submit' className="btn btn-secondary"/>
             </form>
         </div>
     )

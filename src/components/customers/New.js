@@ -8,8 +8,8 @@ handleSubmit=(formData)=>{
     axios.post('/customers',formData,{
         headers:{
             'x-auth':localStorage.getItem('authToken')
-        }
-    })
+        } 
+    }) 
     .then(response=>{
         if(response.data.hasOwnProperty('errors')){
             alert(response.data.message)

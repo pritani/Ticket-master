@@ -1,6 +1,6 @@
 import React from 'react'
-import axios from '../../config/axios'
-//import axios from 'axios'
+// import axios from '../../config/axios'
+import axios from 'axios'
 import {Link} from 'react-router-dom'
 
 class TicketList extends React.Component{
@@ -11,22 +11,22 @@ class TicketList extends React.Component{
             tickets: [],
             departments: [],
             employees: []
-        } 
+        }
     }
 
     componentDidMount() {
         axios.all([
-            axios.get(`/tickets`, {
+            axios.get('http://dct-ticket-master.herokuapp.com/tickets', {
                 headers: {
                     'x-auth': localStorage.getItem('authToken')
                 }
             }),
-            axios.get(`/departments`, {
+            axios.get('http://dct-ticket-master.herokuapp.com/departments', {
                 headers: {
                     'x-auth': localStorage.getItem('authToken')
                 }
             }),
-            axios.get(`/employees`, {
+            axios.get('http://dct-ticket-master.herokuapp.com/employees', {
                 headers: {
                     'x-auth': localStorage.getItem('authToken')
                 }
@@ -39,7 +39,7 @@ class TicketList extends React.Component{
     }
 
     handleRemove = (id) => {
-        axios.delete(`/tickets/${id}`, {
+        axios.delete(`http://dct-ticket-master.herokuapp.com/tickets/${id}`, {
             headers: {
                 'x-auth': localStorage.getItem('authToken')
             }
@@ -49,6 +49,10 @@ class TicketList extends React.Component{
                 return {tickets: prevState.tickets.filter(ticket => ticket._id !== response.data._id)}
             })
         })
+    }
+
+    handleEmp = (emps) => {
+        console.log()
     }
 
     render() {
@@ -82,5 +86,3 @@ class TicketList extends React.Component{
         )
     }
 }
-
-export default TicketList

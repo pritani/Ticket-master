@@ -50,9 +50,10 @@ this.props.handleSubmit(formData)
         return(
             <div>
                   <form onSubmit={this.handleSubmit}>
+           <div className="form-group">
             <label htmlFor="name">name</label>
             <input type='text' value={this.state.name} name="name" onChange={this.handleChange} id="name"/><br/><br/>
-           
+            </div>
             <label htmlFor="email">email</label>
             <input type='text' value={this.state.email} name="email" onChange={this.handleChange} id="email"/><br/><br/>
            

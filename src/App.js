@@ -1,5 +1,6 @@
 import React from 'react'
 import {BrowserRouter,Link,Route,Switch} from 'react-router-dom'
+import Navigation from './components/static/navigation'
 import Home from './components/Home'
 import Register from './components/Users/Register'
 import Login from './components/Users/Login'
@@ -15,6 +16,8 @@ import EmployeeEdit from './components/employees/Edit'
 import TicketList from './components/tickets/List'
 import TicketNew from './components/tickets/New'
 import TicketShow from './components/tickets/Show'
+import TicketEdit from './components/tickets/edit'
+
 function App(props){
   console.log(props)
   const handleLogout=()=>{
@@ -23,7 +26,8 @@ function App(props){
   }
   return(
     <BrowserRouter>
-    <div>
+    <div className="container">
+
       <h1>Ticket Master</h1>
       <Link to="/">Home</Link>
       {
@@ -47,6 +51,7 @@ function App(props){
      </div>
      )
 }
+
 <Switch>
       <Route path="/" component={Home} exact={true}/>
       <Route path="/account/register" component={Register} />
@@ -63,6 +68,7 @@ function App(props){
       <Route path="/tickets" component={TicketList} exact={true}/>
       <Route path="/tickets/new" component={TicketNew}/>
       <Route path="/tickets/:id" component={TicketShow}/>
+      <Route path="/tickets/edit/:id" component={TicketEdit}/>
       
       </Switch>
       </div>
